@@ -14,7 +14,7 @@ def train():
 def similarity():
     docFile = request.json
     return jsonify(
-        id = int(mostSimilarDocument(docFile["data"]))
+        id = mostSimilarDocument(docFile["data"])
     )
 
 if __name__ == '__main__':

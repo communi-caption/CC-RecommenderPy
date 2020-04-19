@@ -1,4 +1,3 @@
-import codecs
 import gensim
 import re
 
@@ -13,4 +12,5 @@ def mostSimilarDocument(inDoc):
     inferred_vector = model.infer_vector(inDoc)
     sims = model.docvecs.most_similar([inferred_vector], topn=len(model.docvecs))
 
-    return sims[0][0]
+    return [int(sims[0][0]),int(sims[1][0]),int(sims[2][0])]
+
