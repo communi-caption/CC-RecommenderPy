@@ -1,10 +1,12 @@
 import gensim
 import codecs
 import re
+import json
 
 def setTrainingData(trainDoc):
     with codecs.open(trainDoc, 'r', encoding='utf8') as w:
-        Lines = w.readlines()
+        Lines = json.load(w)
+
     with codecs.open("clearTrain.txt", 'w', encoding='utf8') as f:
         for line in Lines:
             line = re.sub(r'[^\w\s]', '', line)
