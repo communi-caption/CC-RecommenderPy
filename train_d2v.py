@@ -5,7 +5,7 @@ import json
 
 def setTrainingData(trainDoc):
     with codecs.open(trainDoc, 'r', encoding='utf8') as w:
-        Lines = json.load(w)
+        Lines = w.readlines()
 
     with codecs.open("clearTrain.txt", 'w', encoding='utf8') as f:
         for line in Lines:
@@ -25,6 +25,7 @@ def read_corpus(fname, tokens_only=False):
         Lines = f.readlines()
     for line in Lines:
         count += 1
+        print(count)
         tokens = gensim.utils.simple_preprocess(line)
         if tokens_only:
             yield tokens
